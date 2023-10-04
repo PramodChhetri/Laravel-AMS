@@ -15,20 +15,6 @@
             <div class="col-sm-3">
                 <label for="location" class="form-label">Location</label>
                 <input type="text" name="location" id="location" class="form-control" placeholder="Enter Location" required>
-                <br>
-                <input type="text" id="longitude" name="longitude" class="form-control"placeholder="Longitude" readonly>
-                <br>
-                <input type="text" id="latitude" name="latitude" class="form-control" placeholder="Latitude" readonly>
-                <br>
-                <input type="text" id="ip" name="ip" class="form-control" placeholder="IP" readonly>
-                <br>
-                <input type="text" id="city" name="city" class="form-control" placeholder="city" readonly>
-                <input type="hidden" id="cityLat" name="cityLat" value="">
-                <input type="hidden" id="cityLon" name="cityLon" value="">
-                <br>
-                <input type="text" id="dtime" name="dtime" class="form-control" placeholder="dtime" readonly>
-                <br>
-                <input type="text" id="dkm" name="dkm" class="form-control" placeholder="dkm" readonly>
             </div>
             <div class="col-sm-3">
                 <label for="name" class="form-label">Client Name</label>
@@ -51,6 +37,27 @@
             </div>
         </div>
     </form>
+
+
+    <div class="row">
+        <div class="col-sm-3">
+            <input type="text" id="longitude" name="longitude" class="form-control"placeholder="Longitude" readonly>
+            <br>
+            <input type="text" id="latitude" name="latitude" class="form-control" placeholder="Latitude" readonly>
+            <br>
+            <input type="text" id="ip" name="ip" class="form-control" placeholder="IP" readonly>
+            <br>
+            <input type="text" id="city" name="city" class="form-control" placeholder="city" readonly>
+            <input type="hidden" id="cityLat" name="cityLat" value="">
+            <input type="hidden" id="cityLon" name="cityLon" value="">
+            <br>
+            <input type="text" id="dtime" name="dtime" class="form-control" placeholder="dtime" readonly>
+            <br>
+            <input type="text" id="dkm" name="dkm" class="form-control" placeholder="dkm" readonly>
+        </div>
+    </div>
+
+
 
 </div>
 
