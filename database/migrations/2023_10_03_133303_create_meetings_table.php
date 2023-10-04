@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('latitude');
             $table->integer('meeting_time');
             $table->integer('distance_time');
+            $table->integer('distance_km');
             $table->date('date');
             $table->timestamps();
         });
