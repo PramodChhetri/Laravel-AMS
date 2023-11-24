@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MeetingController;
+use App\Models\Meeting;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +33,4 @@ Route::get('/logout', [UserController::class, 'logout']);
 
 // Home Page
 Route::get('/home', [UserController::class, 'home']);
+Route::post('/home', [MeetingController::class, 'addMeeting'])->name('addMeeting');

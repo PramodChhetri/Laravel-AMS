@@ -13,8 +13,36 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+    {{-- Roborto font --}}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+    {{-- FontAwesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <title>MMS</title>
+
+    <style>
+      body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f3f3f3;
+    }
+
+    .container {
+            margin-top: 50px;
+        }
+
+        .btn-logout {
+            margin-top: 10px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .alert {
+            margin-top: 20px;
+        }
+    </style>
   </head>
   <body>
 
