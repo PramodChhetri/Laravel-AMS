@@ -34,3 +34,7 @@ Route::get('/logout', [UserController::class, 'logout']);
 // Home Page
 Route::get('/home', [UserController::class, 'home']);
 Route::post('/home', [MeetingController::class, 'addMeeting'])->name('addMeeting');
+
+
+// Get Meeting by date
+Route::get('/get-meetings', [MeetingController::class, 'getDateMeetings'])->name('getDateMeetings');

@@ -101,7 +101,7 @@
 
         <div class="row">
             <div class="col-sm-3">
-                <label for="location" class="form-label">Location</label>
+                <label for="location" class="form-label">Client Location</label>
                 <input type="text" name="location" id="location" class="form-control" placeholder="Select Location" required>
             </div>
             <div class="col-sm-3">
@@ -115,7 +115,7 @@
             </div>
             <div class="col-sm-3">
                 <label for="date" class="form-label">Date</label>
-                <input type="date" name="date" class="form-control" required>
+                <input type="date" name="date" id="date" class="form-control" required>
             </div>
         </div>
 
@@ -144,6 +144,48 @@
         </div>
     </form>
 </div>
+
+<div class="container">
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>S.N</th>
+                <th>Name</th>
+                <th>Client Location</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Meeting Time</th>
+                <th>Distance Time</th>
+                <th>Distance In Km</th>
+                <th>Current Distance In Km</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+            @if (count($meetings) > 0)
+                @foreach ($meetings as $meeting)
+                    <tr>
+                        <td>{{$meeting->id}}</td>
+                        <td>{{$meeting->name}}</td>
+                        <td>{{$meeting->location}}</td>
+                        <td>{{$meeting->latitude}}</td>
+                        <td>{{$meeting->longitude}}</td>
+                        <td>{{$meeting->meeting_time}}</td>
+                        <td>{{$meeting->distance_time}}</td>
+                        <td>{{$meeting->distance_km}}</td>
+                        <td>{{$meeting->current_km}}</td>
+                        <td>{{$meeting->date}}</td>
+                    </tr>
+                @endforeach
+            @else
+                <tr>
+                    <td colspan="9" class="text-center">No Meeting Today</td>
+                </tr>
+            @endif
+        </tbody>
+    </table>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -210,6 +252,49 @@
                 }
             });
         });
+
+        // Get Meeting By date
+        $("#date").change(function () {
+    var date = $(this).val();
+
+    $.ajax({
+        url: "{{route('getDateMeetings')}}",
+        type: "GET",
+        data: {'date': date}, // Fix the typo here
+        success: function (data) {
+            var html = '';
+            var meetings = data.meetings;
+            console.log(meetings);
+            if (meetings.length > 0) {
+                for (let i = 0; i < meetings.length; i++) {
+                    html += `
+                        <tr>
+                            <td>` + meetings[i]['id'] + `</td>
+                            <td>` + meetings[i]['name'] + `</td>
+                            <td>` + meetings[i]['location'] + `</td>
+                            <td>` + meetings[i]['latitude'] + `</td>
+                            <td>` + meetings[i]['longitude'] + `</td>
+                            <td>` + meetings[i]['meeting_time'] + `</td>
+                            <td>` + meetings[i]['distance_time'] + `</td>
+                            <td>` + meetings[i]['distance_km'] + `</td>
+                            <td>` + meetings[i]['current_km'] + `</td>
+                            <td>` + meetings[i]['date'] + `</td>
+                        </tr>
+                    `;
+                }
+            } else {
+                html += `
+                    <tr>
+                        <td colspan="9" class="text-center">No Meeting Today</td>
+                    </tr>
+                `;
+            }
+
+            $(".tbody").html(html);
+        }
+    });
+});
+
     });
 
     function getCity(ip) {
